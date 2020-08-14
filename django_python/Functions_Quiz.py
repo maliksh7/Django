@@ -21,8 +21,19 @@
 # arrayCheck([1, 1, 2, 1, 2, 3]) → True
 
 def arrayCheck(nums):
-    # CODE GOES HERE
+    """
+        Given a list of integers, return True if the sequence of numbers 1, 2, 3
+        appears in the list somewhere.
+    """
+    for i in range(len(nums)-2):
+        if nums[i]==1 and nums[i+1]==2 and nums[i+2]==3:
+            return True
 
+    return False
+
+print(arrayCheck([1, 1, 2, 3, 1]))
+print(arrayCheck([1, 1, 2, 4, 1]))
+print(arrayCheck([1, 1, 2, 1, 2, 3]))
 
 #####################
 ## -- PROBLEM 2 -- ##
@@ -38,8 +49,12 @@ def arrayCheck(nums):
 # stringBits('Heeololeo') → 'Hello'
 
 def stringBits(str):
-  # CODE GOES HERE
+  str1 = str[::2]
+  print(str1)
 
+stringBits('Hello')
+stringBits('Hi')
+stringBits('Heeololeo')
 
 #####################
 ## -- PROBLEM 3 -- ##
@@ -59,7 +74,16 @@ def stringBits(str):
 
 
 def end_other(a, b):
-  # CODE GOES HERE
+  a = a.lower()
+  b = b.lower()
+
+  return a[-(len(b)):] == b or a == b[-(len(a)):]
+
+print(end_other('Hiabc', 'abc'))
+print(end_other('AbC', 'HiaBc'))
+print(end_other('abc', 'abXabc'))
+
+
 
 #####################
 ## -- PROBLEM 4 -- ##
@@ -73,8 +97,14 @@ def end_other(a, b):
 # doubleChar('Hi-There') → 'HHii--TThheerree'
 
 def doubleChar(str):
-  # CODE GOES HERE
+  string = ''
+  for i in range(len(str)):
+      string = string + str[i] + str[i]
+  return string
 
+print(doubleChar('The'))
+print(doubleChar('AAbb'))
+print(doubleChar('Hi-There'))
 
 #####################
 ## -- PROBLEM 5 -- ##
@@ -98,9 +128,19 @@ def doubleChar(str):
 # no_teen_sum(2, 1, 14) → 3
 
 def no_teen_sum(a, b, c):
-  # CODE GOES HERE
+    return fix_teen(a) + fix_teen(b) + fix_teen(c)
 def fix_teen(n):
-  # CODE GOES HERE
+  if n >= 13 and n < 15:
+      return 0
+  if n > 15 and n <= 19:
+      return 0
+  else:
+      return n
+
+print(no_teen_sum(1, 2, 3))
+print(no_teen_sum(2, 13, 1))
+print(no_teen_sum(2, 1, 14))
+
 
 #####################
 ## -- PROBLEM 6 -- ##
@@ -115,4 +155,12 @@ def fix_teen(n):
 # count_evens([1, 3, 5]) → 0
 
 def count_evens(nums):
-  # CODE GOES HERE
+  evens = 0
+  for i in range(len(nums)):
+      if nums[i] % 2 == 0:
+          evens += 1
+  return evens
+
+print(count_evens([2, 1, 2, 3, 4]))
+print(count_evens([2, 2, 0]))
+print(count_evens([1, 3, 5]))
