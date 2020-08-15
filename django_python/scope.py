@@ -45,3 +45,16 @@ greet()         #EFL -> Hello Sammy
 print(name)     #Global - This is global name
 
 # Built-in
+    # len()
+
+# Global
+
+x = 50
+
+def fun():
+    global x
+    x = 1000
+
+print("Before fun call, x is: ",x)
+fun()
+print("After fun call, x is: ",x)    
