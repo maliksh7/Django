@@ -52,9 +52,10 @@ print(name)     #Global - This is global name
 x = 50
 
 def fun():
-    global x
+    # global x
     x = 1000
+    return x
 
 print("Before fun call, x is: ",x)
-fun()
-print("After fun call, x is: ",x)    
+x = fun()
+print("After fun call, x is: ",x)
